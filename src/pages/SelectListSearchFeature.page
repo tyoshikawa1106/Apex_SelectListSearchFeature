@@ -1,0 +1,52 @@
+<apex:page controller="SelectListSearchFeatureController" showHeader="true" sidebar="false" id="page">
+    
+    <apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" />
+    <apex:includeScript value="{!URLFOR($Resource.chosen_jquery_plugin, 'chosen.jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.chosen_jquery_plugin, 'chosen.jquery.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.chosen_jquery_plugin, 'docsupport/prism.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.chosen_jquery_plugin, 'docsupport/prism.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.chosen_jquery_plugin, 'chosen.css')}"/>
+        
+    <apex:form id="form">
+        <apex:sectionHeader title="Force.com" subTitle="Visualforce Jquery Select List with Search feature" />
+        <apex:pageBlock id="block">
+            <apex:pageMessages id="msg"/>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value=" Check Color!! " action="{!doCheckColor}" reRender="form"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:selectList id="chooseColor" value="{!color}" size="1" label="Color" styleClass="chosen-select" style="width:100px;">
+                    <apex:selectOption itemValue="" itemLabel="-- none --"/>
+                    <apex:selectOption itemValue="red" itemLabel="Red"/>
+                    <apex:selectOption itemValue="white" itemLabel="White"/>
+                    <apex:selectOption itemValue="blue" itemLabel="Blue"/>
+                </apex:selectList> 
+                <apex:pageBlockSectionItem >
+                    <apex:outputText value="Country" />
+                    <apex:outputPanel >
+                        <select data-placeholder="Choose a Country..." class="chosen-select" style="width:350px;" tabindex="2">
+                            <option value=""></option>
+                            <option value="United States">United States</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Japan">Japan</option>
+                       </select>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock> 
+    
+        <script type="text/javascript">
+            var $j = jQuery.noConflict();
+            var config = {
+                '.chosen-select'           : {},
+                '.chosen-select-deselect'  : {allow_single_deselect:true},
+                '.chosen-select-no-single' : {disable_search_threshold:10},
+                '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+                '.chosen-select-width'     : {width:"95%"}
+            }
+            for (var selector in config) {
+              $j(selector).chosen(config[selector]);
+            }
+      </script>
+  </apex:form>
+</apex:page>
