@@ -20,6 +20,10 @@ private class SelectListSearchFeatureControllerTest {
         cls.doCheckColor();
         System.assertEquals(String.isEmpty(cls.color), true);
         
+        cls.color = 'red';
+        cls.doCheckColor();
+        System.assertEquals(String.isEmpty(cls.color), false);
+        
         Test.stopTest();
     }
 }
