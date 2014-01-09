@@ -6,6 +6,8 @@ Apex_SelectListSearchFeature
 下記のサイトを参考にしています。  
 > Visualforce Jquery Select List with Search feature  
 > http://www.chiragmehta.info/chirag/
+> Chosen (v1.0.0)  
+> http://harvesthq.github.io/chosen/  
   
 <img src="http://cdn-ak.f.st-hatena.com/images/fotolife/t/tyoshikawa1106/20140108/20140108200410.png" />  
   
